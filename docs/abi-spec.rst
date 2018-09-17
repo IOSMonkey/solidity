@@ -79,6 +79,18 @@ Types can be combined to a tuple by enclosing them inside parentheses, separated
 It is possible to form tuples of tuples, arrays of tuples and so on.  It is also possible to form zero-tuples (where ``n == 0``).
 
 .. note::
+   The following Solidity types are not part of the ABI, and are mapped to
+   some existing ABI type:
+
+   - :ref:`enum<enums>`: maps to the smallest ``uint`` type that is large enough
+     to hold all values. For example, an ``enum`` of 255 values or less is
+     mapped to ``uint8`` and an ``enum`` of 256 values is mapped to ``uint16``.
+
+   - :ref:`contract<contracts>`: maps to ``address``.
+
+   - :ref:`address payable<address>`: maps to ``address``.
+
+.. note::
     Solidity supports all the types presented above with the same names with the exception of tuples. The ABI tuple type is utilised for encoding Solidity ``structs``.
 
 Formal Specification of the Encoding
